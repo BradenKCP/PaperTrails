@@ -1,12 +1,18 @@
 extends KinematicBody2D
 
 const SPEED = 200
-var PAUSE = false
+var PAUSED = false
 
 var motion = Vector2()
 
 func _physics_process(delta):
+	if PAUSED:
+		SPEED = 0
+	else:
+		SPEED = 200
 	motion.x = SPEED
+	
+	print(PAUSED)
 	
 	
 	#if Input.is_action_pressed("ui_right"):
@@ -22,4 +28,14 @@ func _physics_process(delta):
 	pass
 
 func _on_Button_pressed():
-	PAUSE = true
+	if PAUSED:
+		PAUSED = false
+		$Control/CenterContainer/Pause.set_text("Pause")
+		get_tree().set_pause(false)
+	else:
+		PAUSED = true
+		$Control/CenterContainer/Pause.set_text("UnPause")
+		get_tree().set_pause(true)
+		
+	
+
