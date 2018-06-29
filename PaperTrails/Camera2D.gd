@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Camera2D
 
 const UP = Vector2(0, -1)
 const GRAVITY = 20
