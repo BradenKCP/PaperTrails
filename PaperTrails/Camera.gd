@@ -12,8 +12,6 @@ func _physics_process(delta):
 		SPEED = 200
 	motion.x = SPEED
 	
-	print(PAUSED)
-	
 	
 	#if Input.is_action_pressed("ui_right"):
 		#motion.x = SPEED
