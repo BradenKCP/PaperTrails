@@ -20,14 +20,16 @@ func _physics_process(delta):
 		#motion.x = -SPEED
 		#$Sprite.flip_h = true
 		#$Sprite.play("Run")
+
 		
 	if is_on_wall():
 		$Sprite.play("Idle")
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
-			if !((get_viewport().get_mouse_position().x < 85) && (get_viewport().get_mouse_position().y < 55)):
-				motion.y = JUMP_HEIGHT
-				print(get_viewport().get_mouse_position())
+			if !((get_viewport().get_mouse_position().x > 550) && (get_viewport().get_mouse_position().y < 55)):
+				if ((get_viewport().get_mouse_position().x < 150)):
+					motion.y = JUMP_HEIGHT
+					print(get_viewport().get_mouse_position())
 	else:
 		if motion.y < 0:
 			$Sprite.play("Jump")

@@ -12,18 +12,9 @@ func _physics_process(delta):
 		SPEED = 200
 	motion.x = SPEED
 	
-	
-	#if Input.is_action_pressed("ui_right"):
-		#motion.x = SPEED
-		#$Sprite.flip_h = false
-		#$Sprite.play("Run")
-	#elif Input.is_action_pressed("ui_left"):
-		#motion.x = -SPEED
-		#$Sprite.flip_h = true
-		#$Sprite.play("Run")
-	
 	motion = move_and_slide(motion)
 	pass
+
 
 func _on_Button_pressed():
 	if PAUSED:
@@ -35,5 +26,3 @@ func _on_Button_pressed():
 		$Control/CenterContainer/Pause.set_text("UnPause")
 		get_tree().set_pause(true)
 		
-	
-
