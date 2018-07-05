@@ -11,7 +11,7 @@ func _input(event):
 			var pos = event.get_position()
 			if ((pos.x < 550) && (pos.y > 55)):
 				if ((pos.x > 150)):
-					spawn_ink(event.get_position().x, event.get_position().y)
+					spawn_ink(event.get_position().x + $Controller/Node2D2.get_global_position().x, event.get_position().y - 32)
 					
 func spawn_ink(x, y):
 	var pos = Vector2(x, y)

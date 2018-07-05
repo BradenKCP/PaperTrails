@@ -15,7 +15,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 	pass
 
-
 func _on_Button_pressed():
 	if PAUSED:
 		PAUSED = false
