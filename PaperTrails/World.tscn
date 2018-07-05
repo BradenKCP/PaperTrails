@@ -3,10 +3,10 @@
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
 [ext_resource path="res://Area2D.gd" type="Script" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://jungleDirtTileSet.tres" type="TileSet" id=5]
-[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Node2D.gd" type="Script" id=7]
+[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Node2D.gd" type="Script" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://jungleDirtTileSet.tres" type="TileSet" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -73,6 +73,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Control" type="Control" parent="Controller" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -134,14 +135,26 @@ flat = false
 align = 1
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Visibility" ]
 
-[node name="Player" parent="." index="1" instance=ExtResource( 4 )]
+[node name="WorldComplete" parent="Controller" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 1408, 32 )
+worldScene = "res://World2.tscn"
+
+[node name="Node2D" type="Node2D" parent="Controller" index="4"]
+
+pause_mode = 2
+position = Vector2( -288, -160 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 320, 160 )
 
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 7 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -162,15 +175,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="WorldComplete" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 1728, 128 )
-worldScene = "res://World2.tscn"
-
-[node name="Node2D" type="Node2D" parent="." index="4"]
-
-position = Vector2( 32, -64 )
-script = ExtResource( 7 )
+[connection signal="input_event" from="Controller" to="Controller" method="_on_Controller_input_event"]
 
 [connection signal="pressed" from="Controller/Control/CenterContainer/Pause" to="Controller" method="_on_Button_pressed"]
 
