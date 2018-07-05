@@ -31,10 +31,10 @@ func _physics_process(delta):
 	pass
 
 func _input(event):
-	print(event)
 	if event is InputEventScreenTouch:
 		if canJump == true:
-			var pos = event.get_position()
-			if !((pos.x > 550) && (pos.y < 55)):
-				if ((pos.x < 150)):
-					motion.y = JUMP_HEIGHT
+			if event.is_pressed():
+				var pos = event.get_position()
+				if !((pos.x > 550) && (pos.y < 55)):
+					if ((pos.x < 150)):
+						motion.y = JUMP_HEIGHT

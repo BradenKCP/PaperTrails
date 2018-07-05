@@ -8,6 +8,7 @@ func _physics_process(delta):
 		
 func _input(event):
 	if event is InputEventScreenTouch:
+		if event.is_pressed():
 			var pos = event.get_position()
 			if ((pos.x < 550) && (pos.y > 55)):
 				if ((pos.x > 150)):
@@ -18,5 +19,5 @@ func spawn_ink(x, y):
 	var ink = ink_scene.instance()
 	ink.position = pos
 	add_child(ink)
-	
-	
+
+		

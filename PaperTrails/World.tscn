@@ -4,9 +4,9 @@
 [ext_resource path="res://Node2D.gd" type="Script" id=2]
 [ext_resource path="res://Camera.gd" type="Script" id=3]
 [ext_resource path="res://Area2D.gd" type="Script" id=4]
-[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://jungleDirtTileSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://jungleDirtTileSet.tres" type="TileSet" id=6]
+[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -142,23 +142,18 @@ flat = false
 align = 1
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Visibility" ]
 
-[node name="WorldComplete" parent="Node2D/Controller" index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 1408, 32 )
-worldScene = "res://World2.tscn"
-
-[node name="Node2D2" type="Node2D" parent="Node2D/Controller" index="4"]
+[node name="Node2D2" type="Node2D" parent="Node2D/Controller" index="3"]
 
 position = Vector2( -320, -96 )
 
-[node name="Player" parent="." index="1" instance=ExtResource( 6 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 320, 160 )
 
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -178,6 +173,11 @@ _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="WorldComplete" parent="." index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 1728, 128 )
+worldScene = "res://World2.tscn"
 
 [connection signal="input_event" from="Node2D/Controller" to="Node2D/Controller" method="_on_Controller_input_event"]
 
