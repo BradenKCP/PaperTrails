@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 0
+const SPEED = 50
 var PAUSED = false
 
 var motion = Vector2()
@@ -9,7 +9,7 @@ func _physics_process(delta):
 	if PAUSED:
 		SPEED = 0
 	else:
-		SPEED = 0
+		SPEED = 50
 	motion.x = SPEED
 	
 	motion = move_and_slide(motion)
