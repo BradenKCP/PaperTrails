@@ -4,7 +4,7 @@
 [ext_resource path="res://Node2D.gd" type="Script" id=2]
 [ext_resource path="res://Camera.gd" type="Script" id=3]
 [ext_resource path="res://Area2D.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Untitled.png" type="Texture" id=5]
+[ext_resource path="res://Inks.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://jungleDirtTileSet.tres" type="TileSet" id=7]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=8]
@@ -147,25 +147,7 @@ _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Material", "Pause", 
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" index="1"]
-
-position = Vector2( -128, -128 )
-scale = Vector2( 0.1, 0.1 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="Node2D/StaticBody2D" index="0"]
-
-position = Vector2( 200, 0 )
-scale = Vector2( 10, 10 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
+[node name="StaticBody2D" parent="Node2D" index="1" instance=ExtResource( 5 )]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 6 )]
 
