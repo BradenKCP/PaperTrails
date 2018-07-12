@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
         }
         else{
             jumping = false;
-        }
+        } 
 
         if (myRigidBody.velocity.x < maxSpeed)
             myRigidBody.AddForce(Vector2.right * moveForce);
