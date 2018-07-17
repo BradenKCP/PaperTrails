@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class ChangeButtonText : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        Text txt = GetComponentInChildren<Text>();
+    private bool isPaused = false;
+
+    // Use this for initialization
+    void Start () {
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (isPaused) {
+            GetComponentsInChildren<Text>()[0].text = "Unpause";
+        }
+        if (!isPaused) {
+            GetComponentsInChildren<Text>()[0].text = "Pause";
+        }
+    }
 
     public void ButtonPressed() {
-
+        isPaused = !isPaused;
     }
 
 }
