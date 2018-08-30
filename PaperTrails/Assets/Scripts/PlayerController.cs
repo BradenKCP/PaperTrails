@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 
         //(!((pos.x > 810) && (pos.y > 320))) area of pause button, you will need this later
         if (Input.GetMouseButtonDown(0)){
-            if (pos.x < 350) {
+            if (pos.x < 600) {
                 if (grounded) {
                     myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
                 }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetMouseButton(0)) {
             if(jumpTimeCounter > 0) {
-                if (pos.x < 350) {
+                if (pos.x < 600) {
                     myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
                     jumpTimeCounter -= Time.deltaTime;
                 }
@@ -81,8 +81,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnBecameInvisible() {
-        //yield return new WaitForSeconds(0.5f);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
     }
 }
